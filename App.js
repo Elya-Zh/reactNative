@@ -25,6 +25,10 @@ export default function App() {
   })
   }
 
+  const deleteHandler = (key) => {
+    setListOfItems(listOfItems.filter(el => el.key !== key)
+  )}
+
   return (
     
      <View>
@@ -32,7 +36,7 @@ export default function App() {
     <Form addHandler={addHandler}/>
     <View>
      <FlatList data={listOfItems} renderItem={({item})=> (
-       <List el={item}/>
+       <List el={item} deleteHandler={deleteHandler}/>
      )}/>
     </View>
      </View>
